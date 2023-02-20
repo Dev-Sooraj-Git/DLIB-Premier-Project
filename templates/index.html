@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ICP ML API</title>
+    <style>
+
+ h1 {color:darkCyan;}
+  h3 {color:red;}
+  h4 {color:black;}
+  form {color:black;}
+
+</style>
+</head>
+
+<body style="background-color:LightBlue">
+
+ <div class="login">
+	<h1>Insurance Charges Prediction</h1>
+    <h4>__WELCOME TO INSURANCE PREDICTION__ </h4>
+    <pre> <marquee> <h3> Note: [Please Enter inputs in numerical form only] </h3> </marquee> </pre>
+     <!-- Main Input For Receiving Query to our ML -->
+     <br>
+     <br>
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="name"> Enter Age: </label>
+    	<input type="number" name="age" placeholder="age" required="required" id="name" />
+        <br>
+        <br>
+        <label for="s"> Enter Sex: </label>
+        <input type="number" name="sex" placeholder="sex [ male: 0, female: 1]" required="required" id="s" />
+        <br>
+        <br>
+        <label for="n"> Enter BMI: </label>
+		<input type="text" name="bmi" placeholder="eg : 27.33" required="required" id="n" />
+        <br>
+        <br>
+        <label for="ne"> Enter No Of Children: </label>
+		<input type="number" name="children" placeholder="children" required="required" id="ne" />
+        <br>
+        <br>
+        <label for="e"> Smoker: </label>
+        <input type="number" name="smoker" placeholder="smoker [ yes : 1, no: 0]" required="required" id="e" />
+
+       <h4> <pre> Select options <br><br> South_West : 1,  South_East: 2,  <br> North_West: 3,  North_East: 4  </pre> </h4>
+        <label for="m"> Enter region: </label>
+        <input type="number" name="region" placeholder="[ eg : 1]" required="required" id="m" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+   <br>
+   <br>
+     <h3>{{ prediction_text }}</h3>
+
+ </div>
+
+
+</body>
+</html>
